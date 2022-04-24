@@ -3,14 +3,15 @@ import Child1 from './Child1'
 
 const Parent1 = () => {
 
-const API = 'https://api.nasa.gov/EPIC/api/natural?api_key=DEMO_KEY'
-const [earth, setEarth] = useState([])
+const API = 'https://rickandmortyapi.com/api/character'
+const [characters, setCharacters] = useState([])
 
 useEffect(()=>{
   fetch(API)
   .then(r=>r.json())
   .then(data=>{
-    setEarth(data)
+    // console.log(data.results)
+    setCharacters(data.results)
   })
   .catch((err)=>console.log(err))
 }, [])
@@ -18,7 +19,7 @@ useEffect(()=>{
 return ( 
   <div>
     Hello, back.  From Parent1
-    {earth && <Child1 earth={earth}/>}
+    {characters && <Child1 characters={characters}/>}
   </div>
  );
 }

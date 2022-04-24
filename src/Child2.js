@@ -1,5 +1,5 @@
 const Child2 = (cards) => {
-  // debugger
+
   return ( 
     <div>
       Hi!  Child2
