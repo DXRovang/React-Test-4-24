@@ -1,11 +1,11 @@
-const Child2 = (mars) => {
+const Child2 = (cards) => {
   // debugger
   return ( 
     <div>
       Hi!  Child2
-      {mars ? mars.mars.map(photo=>(
-        <div key={photo.id}>
-          {photo.img_src}
+      {cards ? cards.cards.map(card=>(
+        <div key={card.id}>
+          <img src={card.image} alt="image"/>
         </div>
       )
    ) : null }
