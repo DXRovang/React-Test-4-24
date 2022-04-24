@@ -1,3 +1,4 @@
+import {useState, useEffect} from 'react';
 import Child1 from './Child1'
 
 const Parent1 = () => {
@@ -8,5 +9,7 @@ const Parent1 = () => {
     </div>
    );
 }
+
+const API = 'https://api.nasa.gov/EPIC/api/natural?api_key=DEMO_KEY'
  
 export default Parent1;
