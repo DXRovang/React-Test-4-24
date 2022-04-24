@@ -3,7 +3,7 @@ const Child1 = ({earth}) => {
     <div>
       Hi!  Child1
       {earth ? earth.map(photo=>(
-        <div>{photo.image}</div>
+        <div key={photo.id}>{photo.image}</div>
       )
    ) : null }
     </div>
