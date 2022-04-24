@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import Parent1 from './Parent1'
+import Parent2 from './Parent2'
+import {Route, Routes} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      Hello from App
+      <Routes>
+        <Route exact path='/parent1'element = {<Parent1/>}/>  
+        <Route exact path='/parent2'element = {<Parent2/>}/>  
+      </Routes>
     </div>
   );
 }
