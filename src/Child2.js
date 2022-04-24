@@ -5,7 +5,7 @@ const Child2 = (cards) => {
       Hi!  Child2
       {cards ? cards.cards.map(card=>(
         <div key={card.id}>
-          <img src={card.image} alt="image"/>
+          <img src={card.image} alt="image" width={250} height={450}/>
         </div>
       )
    ) : null }
