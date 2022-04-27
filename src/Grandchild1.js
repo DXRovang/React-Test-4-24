@@ -25,7 +25,7 @@ const Grandchild1 = ({characters}) => {
   // debugger
   return ( 
     <div>
-    Hi!  Grandchild1
+    <div className={toggle ? "pink" : "blue"}>Hi!  Grandchild1</div>
     <div>{names[id]}</div>
     <button onClick={()=>setToggle(!toggle)}>Toggle</button>
     <button onClick={handleClick}>Click me</button>
