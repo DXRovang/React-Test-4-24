@@ -10,7 +10,6 @@ useEffect(()=>{
   fetch(API)
   .then(r=>r.json())
   .then(data=>{
-    // console.log(data[0].image)
     setCards(data)
   })
   .catch((err)=>console.log(err))
