@@ -1,5 +1,5 @@
 import {useParams} from 'react-router-dom'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 // import {Link} from 'react-router-dom'
 
 const Grandchild1 = ({characters}) => {
@@ -7,6 +7,7 @@ const Grandchild1 = ({characters}) => {
   const [toggle, setToggle] = useState(false)
   const [toggleDiv, setToggleDiv] = useState(true)
   const [first, setFirst] = useState(["Nick", "Alex"])
+  const [count, setCount] = useState(0)
 
   const handleClickA = () =>{
     setFirst(["Alex", "Nick"])
@@ -26,6 +27,10 @@ const Grandchild1 = ({characters}) => {
     2 : "mike", 
     3 : "charles"
   }
+
+  useEffect(()=>{
+    document.title = `You clicked ${count} times.`
+  })
 
   // const [n, setN] = useState(names)
   // const myList = [characters]
@@ -63,6 +68,12 @@ const Grandchild1 = ({characters}) => {
       <div className="border">
         <div className="blue">This div filters an object's keys via useParams</div>
         {Object.keys(names).filter(key=>(key===id)).map(n=>names[n])}
+      </div>
+
+      <div className="border">
+        <div className="blue">This div uses useEffect with no 2nd arg</div>
+        <div>You clicked {count} times.</div>
+        <button onClick={()=> setCount(count + 1)}>Counter</button>
       </div>
       
     {/* <div>{toggle}</div> */}
