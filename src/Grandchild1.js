@@ -5,34 +5,40 @@ import {useState} from 'react'
 const Grandchild1 = ({characters}) => {
 
   const [toggle, setToggle] = useState(false)
-  const [toggleDiv, setToggleDiv] = useState(false)
+  const [toggleDiv, setToggleDiv] = useState(true)
   const [first, setFirst] = useState(["Nick", "Alex"])
 
-  const handleClick = () =>{
+  const handleClickA = () =>{
     setFirst(["Alex", "Nick"])
   }  
   const handleClickN = () =>{
     setFirst(["Nick", "Alex"])
   } 
-  // const names = {
-  //   1 : "james",
-  //   2 : "mike", 
-  //   3 : "charles"
-  // }
+  const changeColor = () =>{
+    setToggle(!toggle)
+  }
 
-  // const list = ["james", "dan", "charles"]
+  const list = ["james", "dan", "charles"]
+
+  const {id} = useParams()
+  const names = {
+    1 : "james",
+    2 : "mike", 
+    3 : "charles"
+  }
+
   // const [n, setN] = useState(names)
-
   // const myList = [characters]
-  // const {id} = useParams()
   // console.log(myList)
   // debugger
   return ( 
     <div>
+      GrandChild, too!
       <div className={toggle ? "pink border" : "blue border"}>
         This div changes color
         <div>
-          <button onClick={()=>setToggle(!toggle)}>Toggle Color</button>
+          {/* <button onClick={()=>setToggle(!toggle)}>Toggle Color</button> */}
+          <button onClick={changeColor}>Toggle Color</button>
         </div>
       </div>
   
@@ -45,15 +51,22 @@ const Grandchild1 = ({characters}) => {
 
       <div className="border">
         <button onClick={handleClickN}>Nick is First</button>
-        <button onClick={handleClick}>Alex is First</button>
+        <button onClick={handleClickA}>Alex is First</button>
         <div>{first.map(name=><div>{name}</div>)}</div>
       </div>
+
+      <div className="border">
+        <div className="blue">This div uses filter on an array</div>
+        {list.filter(n=> n.includes("e")).map(n=><div>{n}</div>)}
+      </div>
+
+      <div className="border">
+        <div className="blue">This div filters an object's keys via useParams</div>
+        {Object.keys(names).filter(key=>(key===id)).map(n=>names[n])}
+      </div>
+      
     {/* <div>{toggle}</div> */}
-
-    {/* <div>{names[id]}</div>
-    <div>{list.filter(n=> n.includes("m")).map(n=><div>{n}</div>)}</div>
-
-    <div>{Object.keys(names).filter(key=>(key===id)).map(n=>names[n])}</div> */}
+    {/* <div>{names[id]}</div> */}
     {/* <div>{list.filter((key, index)=>index === id).map(i=><div>{i}</div>)}</div> */}
   </div>
    );
