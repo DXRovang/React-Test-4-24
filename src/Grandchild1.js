@@ -41,12 +41,11 @@ const Grandchild1 = ({characters}) => {
 
   const changeList = () =>{
     setMove(()=>[...move, "ariel"])
-    // setMove(()=>[...move].push("ariel"))
   }
 
-  // const removeFirst = () ={
-  //   setMove(move
-  // }
+  const deleteList = ()=>{
+    setMove((list) => list.filter((_,index)=> index!== (list.length - 1)))
+  }
 
   return ( 
     <div>
@@ -96,9 +95,10 @@ const Grandchild1 = ({characters}) => {
       </div>
 
       <div className="border">
-        <div className="blue">This div uses spread operator</div>
+        <div className="blue">This div uses spread operator and an index</div>
         <div>{move.map(n=><div>{n}</div>)}</div>
         <button onClick={changeList}>Add a name</button>
+        <button onClick={deleteList}>Delete last name</button>
       </div>
 
   </div>
